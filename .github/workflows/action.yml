@@ -2,8 +2,9 @@ on:
   push:
     branches:
       - main
-    #branches-ignore:
-    #  - "**"
+  pull_request:
+    branches:
+      - main  
 
 jobs:
   build_wheels:
@@ -14,7 +15,7 @@ jobs:
       matrix:
         #os: [Windows, macOS]
         os: [macOS]
-        python_version: ["3.7", "3.8", "3.9"]
+        python_version: ["3.10"]
 
     steps:
       - name: Get latest Cmake and ninja (All-Systems)
